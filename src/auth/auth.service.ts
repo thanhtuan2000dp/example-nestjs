@@ -1,6 +1,4 @@
 import { Injectable } from '@nestjs/common';
 
 @Injectable({})
-export class AuthService {
-  test() {}
-}
+export class AuthService {}
