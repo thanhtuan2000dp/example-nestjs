@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  dev-db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: 456123
+      MYSQL_DATABASE: mysql
+      MYSQL_USER: ex_nest-mysql
+      MYSQL_PASSWORD: 456123
+    ports:
+      - "5434:5432"
+    restart: always
+    networks:
+      - davidtuan
+networks:
+  davidtuan:
