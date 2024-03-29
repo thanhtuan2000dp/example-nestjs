@@ -13,5 +13,9 @@ services:
     restart: always
     networks:
       - davidtuan
+    volumes:
+      - my-db:/var/lib/mysql
 networks:
   davidtuan:
+volumes:
+  my-db:
