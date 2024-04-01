@@ -2,20 +2,19 @@ version: '3.8'
 
 services:
   dev-db:
-    image: mysql:latest
+    image: postgres:13
+    restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: 456123
-      MYSQL_DATABASE: mysql
-      MYSQL_USER: ex_nest-mysql
-      MYSQL_PASSWORD: 456123
+      POSTGRES_USER: davidtuan
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DATABASE: nestdb
     ports:
       - "5434:5432"
-    restart: always
-    networks:
-      - davidtuan
     volumes:
-      - my-db:/var/lib/mysql
-networks:
-  davidtuan:
+      - postgres-db:/var/lib/postgres
+    networks:
+      - davidtuanNetwork
 volumes:
-  my-db:
+  postgres-db:
+networks:
+  davidtuanNetwork:
