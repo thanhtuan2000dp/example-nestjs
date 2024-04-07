@@ -11,10 +11,14 @@ model User {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  email     String
+  email     String   @unique
   hash      String
   firstName String?
   lastName  String?
+
+  bookmarks Bookrmark[]
+
+  @@map("users")
 }
 
 model Bookrmark {
@@ -24,4 +28,8 @@ model Bookrmark {
   title       String
   description String?
   link        String
+  User        User     @relation(fields: [userId], references: [id])
+  userId      Int
+
+  @@map("bookmarks")
 }
