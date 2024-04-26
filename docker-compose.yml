@@ -14,6 +14,19 @@ services:
       - postgres-db:/var/lib/postgres
     networks:
       - davidtuanNetwork
+  test-db:
+    image: postgres:13
+    restart: always
+    environment:
+      POSTGRES_USER: davidtuan
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DATABASE: nestdb
+    ports:
+      - "5435:5432"
+    volumes:
+      - postgres-db:/var/lib/postgres
+    networks:
+      - davidtuanNetwork
 volumes:
   postgres-db:
 networks:

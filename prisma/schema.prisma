@@ -16,12 +16,12 @@ model User {
   firstName String?
   lastName  String?
 
-  bookmarks Bookrmark[]
+  bookmarks Bookmark[]
 
   @@map("users")
 }
 
-model Bookrmark {
+model Bookmark {
   id          Int      @id @default(autoincrement())
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
